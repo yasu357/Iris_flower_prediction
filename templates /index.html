@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Species Prediction</title>
+</head>
+<style>
+ @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+body {
+    font-family: "Sansita Swashed", cursive;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, greenyellow, dodgerblue);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+</style>
+<body>
+    <h1>Iris Species Prediction</h1>
+    <form  class="login-form" method="post" action="/predict">
+        <div class="form-input-material">
+        <label for="sepal_length">Sepal Length (cm):</label>
+        <input type="text" name="SepalLengthCm" required><br>
+        <div class="form-input-material">
+        <label for="sepal_width">Sepal Width (cm):</label>
+        <input type="text" name="SepalWidthCm" required><br>
+        <div class="form-input-material">
+        <label for="petal_length">Petal Length (cm):</label>
+        <input type="text" name="PetalLengthCm" required><br>
+        <div class="form-input-material">
+        <label for="petal_width">Petal Width (cm):</label>
+        <input type="text" name="PetalWidthCm" required><br>
+        
+        <button type="submit" class="btn btn-primary btn-ghost">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
